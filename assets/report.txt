@@ -1,0 +1,8 @@
+--------------- CSS ------------- 
+*/ Other colors when button is active?
+*/ Hover efects;
+*/ When table is overflow - JS - overflow-y: sroll;
+
+---------------- JS -------------
+*/ JS - find fastest time and mark it with white;
+*/ start-stop-start-stop clear => 0 instead of 00:00:00
