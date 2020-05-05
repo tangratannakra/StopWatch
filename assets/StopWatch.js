@@ -1,11 +1,9 @@
-let mseconds = 0;
-let seconds = 0;
-let minutes = 0;    
+  
 let startTime = null;
 let updatedTime = null;
 let stopTime = null;
 let difference = null; //running - start time
-let ticker = 0;
+//let ticker = 0;
 
 export class StopWatch {
     constructor(){
@@ -23,18 +21,13 @@ export class StopWatch {
         if (!this.counter){
             startTime  = new Date().getTime();
             this.interval = setInterval( () => { 
-                this.time = StopWatch.timeAdder();
-                ticker++;
-                if( ticker % 60 === 0){
-                    this.seconds++;
-                    
-                    if(this.seconds % 60 === 0){
-                        this.minutes++; 
-                    }
-                }
-
                 
-            }, 10);
+                this.difference = StopWatch.timeDifference();
+                [this.minutes, this.seconds, this.mseconds] = StopWatch.timeCalc(this.difference);
+                this.time = StopWatch.timeFormatter(this.minutes, this.seconds, this.mseconds);
+                
+                
+            }, 1);
             this.counter = true;
             this.paused = false;
         }
@@ -42,15 +35,14 @@ export class StopWatch {
     }
 
     stop(){
-            if (!difference) {
+            if (!this.difference) {
                 //never started
             }
             else if(!this.paused){
                 this.counter = false;
                 this.paused = true;
-                stopTime = difference;
+                stopTime = this.difference;
                 clearInterval(this.interval);
-
             }
             else {
                 this.start();
@@ -68,9 +60,6 @@ export class StopWatch {
 
             this.time = 0;
             this.counter = false;
-            mseconds = 0;
-            seconds = 0;
-            minutes = 0;
             difference = 0;
             startTime = 0;
             stopTime = 0;
@@ -79,7 +68,7 @@ export class StopWatch {
         } 
     }
 
-    static timeAdder() {
+    static timeDifference() {
         updatedTime = new Date().getTime();
         
         if (stopTime) {
@@ -89,21 +78,26 @@ export class StopWatch {
             difference = updatedTime - startTime
         }
         
-        return timeFormatter(difference);               
+        return difference;               
+    }
+
+    static timeCalc(difference){
+         
+        this.minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        this.seconds = Math.floor((difference % (1000 * 60)) / 1000);
+        this.mseconds = Math.floor((difference % (1000))/100 );
+
+        return [this.minutes, this.seconds, this.mseconds];
+    }
+    
+    static timeFormatter(minutes, seconds, mseconds){
+
+        //hours = (hours < 10) ? "0" + hours : hours;
+        minutes = (minutes < 10) ? "0" + minutes : minutes;
+        seconds = (seconds < 10) ? "0" + seconds : seconds;
+        mseconds = (mseconds < 10) ? "0" + mseconds : mseconds;
+        
+        return `${minutes}:${seconds}:${mseconds}`;
     }
 }
 
-
-
-function timeFormatter(difference){
-    minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-    seconds = Math.floor((difference % (1000 * 60)) / 1000);
-    mseconds = Math.floor((difference % (1000))/100 );
-
-    //hours = (hours < 10) ? "0" + hours : hours;
-    minutes = (minutes < 10) ? "0" + minutes : minutes;
-    seconds = (seconds < 10) ? "0" + seconds : seconds;
-    mseconds = (mseconds < 10) ? "0" + mseconds : mseconds;
-    
-    return `${minutes}:${seconds}:${mseconds}`;
-}

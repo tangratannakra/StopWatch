@@ -19,7 +19,7 @@ startBtn.addEventListener('click', () => {
     displayInterval = setInterval(()=>{
         displayDiv.innerText = sw.time;
         clock.ticker(sw.seconds, sw.minutes);
-    }, 0);
+    }, 1);
     
 });
 
