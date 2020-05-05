@@ -45,7 +45,7 @@ export class StopWatch {
                 clearInterval(this.interval);
             }
             else {
-                this.start();
+                // if stop is pressed two times;
             }  
         }
         
@@ -58,7 +58,7 @@ export class StopWatch {
                 this.data.push(this.time);
             }
 
-            this.time = 0;
+            this.time = '00:00:00';
             this.counter = false;
             difference = 0;
             startTime = 0;

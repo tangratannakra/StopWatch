@@ -29,6 +29,7 @@ stopBtn.addEventListener('click', () => {
 
 clearBtn.addEventListener('click', () => {
     sw.clear();
+    clock.ticker(sw.seconds, sw.minutes);
     clearInterval(displayInterval);
     displayDiv.innerText = `00:00:00`;
 
