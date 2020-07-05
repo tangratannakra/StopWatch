@@ -1,30 +1,30 @@
 export class Clock {
-    constructor(canvasElement){
+    constructor(canvasElement) {
         this.canvas = document.getElementById(`${canvasElement}`);
         this.canvas.height = this.canvas.width;
         this.ctx = canvas.getContext('2d');
-        this.clockWidth = this.canvas.width -10;
+        this.clockWidth = this.canvas.width - 10;
         this.centerX = canvas.width / 2;
         this.centerY = canvas.height / 2;
     }
 
-    ticker(seconds, minutes){
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height );
+    ticker(seconds, minutes) {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         //this.drawClock()
-        
-        
+
+
         //minutes
-        this.ctx.strokeStyle = 'black';
-        this.ctx.lineWidth = 3;
+        this.ctx.strokeStyle = 'white';
+        this.ctx.lineWidth = 2;
         this.drawHand(this.clockWidth / 2, minutes * 6);
-    
+
         //seconds
         this.ctx.strokeStyle = 'red';
         this.ctx.lineWidth = 1;
         this.drawHand(this.clockWidth / 2, seconds * 6);
     }
 
-    drawHand(length, angle){
+    drawHand(length, angle) {
         this.ctx.save();
         this.ctx.beginPath();
         this.ctx.translate(this.centerX, this.centerY);
@@ -37,13 +37,13 @@ export class Clock {
         this.ctx.restore();
     }
 
-    drawClock(){
+    drawClock() {
         this.ctx.beginPath();
-        this.ctx.arc(this.centerX, this.centerY, this.clockWidth / 2, 0, 2* Math.PI, false);
+        this.ctx.arc(this.centerX, this.centerY, this.clockWidth / 2, 0, 2 * Math.PI, false);
         this.ctx.strokeStyle = 'black';
-        this.ctx.lineWidth = 3; 
+        this.ctx.lineWidth = 3;
         this.ctx.stroke();
         this.ctx.closePath();
-    }  
+    }
 
 }

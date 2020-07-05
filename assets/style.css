@@ -1,225 +1,232 @@
-*{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
 }
 
 body {
-    min-height: 100vh;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Unica One', cursive;
-    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#006d8e+0,006377+100&0.65+0,0+100 */
-/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#006d8e+0,006377+100&0.65+0,0+100 */
-background: rgb(0, 49, 61);
-/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#210000+0,006377+100&0.65+0,0+100 */
-background: -moz-linear-gradient(-45deg, rgba(33,0,0,0.65) 0%, rgba(0,99,119,0) 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(-45deg, rgba(33,0,0,0.65) 0%,rgba(0,99,119,0) 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(135deg, rgba(33,0,0,0.65) 0%,rgba(0,99,119,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6210000', endColorstr='#00006377',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-background: rgb(0, 49, 61);
+  min-height: 100vh;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Unica One', cursive;
+  background-image: radial-gradient(circle, #00606f, #00596d, #00526a, #004b66, #004462, #003e5d, #013857, #023252, #032c4b, #042545, #051f3e, #051937);
+  overflow: hidden;
 }
 
 #wrapper {
-    min-width: 300px;
-    max-width: 60%;
-    background-color:rgba(0,0,0, 0.7);
-    border: 3px solid black;
-    box-shadow: 1px 10px 20px rgba(0,0,0, 0.5);
-    box-shadow: 1px 1px 5px rgba(0,0,0, 0.8);
-    border-radius: 30px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+  min-width: 300px;
+  max-width: 60%;
+  background-color: rgb(9, 30, 44);
+  border: 2px solid black;
+  box-shadow: 3px 2px 15px rgba(0, 0, 0, 0.8), -5px -5px 15px rgba(255, 255, 255, 0.2);
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
 }
 
 
 
 #controls {
-    margin-bottom: 25px;
-    padding-bottom: 25px;
+  margin-bottom: 25px;
+  padding-bottom: 25px;
 }
 
 #controls button {
-    clear: both;
-    padding:5px 25px;
-    font-family: 'Unica One', cursive;
-    text-transform: uppercase;
-    box-shadow: 1px 0px 5px rgba(0,0,0, 0.8);
-    box-shadow: 1px 1px 10px rgba(0,0,0,0.5);
-    background-color: none;
-    /* /font-weight: bold; */
+  clear: both;
+  padding: 5px 25px;
+  font-family: 'Unica One', cursive;
+  text-transform: uppercase;
+  box-shadow: 2px 3px 1px 2px rgba(0, 0, 0, 0.5);
+  border: none;
+  background-color: #d4b527;
+  cursor: pointer;
+  /* /font-weight: bold; */
+}
+
+#controls button:active {
+  background-color: #ffe571;
 }
 
 #score-table ol {
-    margin-bottom: 25px;
-    padding: 10px 75px;
-    background-color: rgba(0,0,0, 0.5);
-    border-radius: 30px;
-    max-height: 300px;
-    list-style-position: inside;
-    
-    /* overflow-y: scroll; */
-
+  max-height: 30vh;
+  margin-bottom: 25px;
+  padding: 10px 75px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 30px;
+  list-style-position: inside;
+  overflow-y: scroll;
 }
 
-#score-table ol>li{
-    padding: 10px 10px;
-    border-bottom: 1px solid black;
-    color: #84bad6;
+
+#score-table ol>li {
+  padding: 10px 10px;
+  border-bottom: 1px solid black;
+  color: #84bad6;
 }
 
 #clock {
-  width:240px;
+  width: 240px;
   height: 240px;
   margin: 25px 0px;
 }
 
-#canvas-wrap{
+#canvas-wrap {
   position: relative;
   width: 240px;
   height: 240px;
   border-radius: 50%;
-  box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
-  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0.65+0,0+100;Neutral+Density */
-background: -moz-radial-gradient(center, ellipse cover, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
-background: -webkit-radial-gradient(center, ellipse cover, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
-background: radial-gradient(ellipse at center, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5), -2px -2px 5px rgba(255, 255, 255, 0.05), inset 2px 5px 2px rgba(0, 0, 0, 0.4), inset -2px -2px 0px rgba(255, 255, 255, 0.02);
 }
 
 #canvas {
   position: absolute;
-  top:0px;
-  box-shadow: rgba(0,0,0, 0.5);
+  top: 0px;
+  box-shadow: rgba(0, 0, 0, 0.5);
   width: 240px;
   z-index: 100;
 }
 
 svg {
-    position: absolute;
-    top:0px;
-    width: 240px;
-    fill: rgba(5,5,5, 0.2);
-    stroke: rgba(0,0,0,0.65);
-    stroke-width: 1;
-    stroke-linecap: round;
-    
-  }
+  position: absolute;
+  top: 0px;
+  width: 240px;
+  fill: rgba(5, 5, 5, 0.2);
+  stroke: rgba(0, 0, 0, 0.1);
+  stroke-width: 1;
+  stroke-linecap: round;
+
+}
 
 .marks {
-    transform: translate(20px, 20px);
-    stroke-width: 0.2;
-    stroke: #007fc4;
-  }
-  .marks > line:nth-child(1) {
-    /* There are 12 marks, so we rotate by 30deg (12 * 30 = 360) */
-    transform: rotate(30deg); 
-  }
-  .marks > line:nth-child(2) {
-    transform: rotate(calc(2 * 30deg));
-  }
-  .marks > line:nth-child(3) {
-    transform: rotate(calc(3 * 30deg));
-    stroke-width: 0.5;
-  }
-  .marks > line:nth-child(4) {
-    transform: rotate(calc(4 * 30deg));
-  }
-  .marks > line:nth-child(5) {
-    transform: rotate(calc(5 * 30deg));
-  }
-  .marks > line:nth-child(6) {
-    transform: rotate(calc(6 * 30deg));
-    stroke-width: 0.5;
-  }
-  .marks > line:nth-child(7) {
-    transform: rotate(calc(7 * 30deg));
-  }
-  .marks > line:nth-child(8) {
-    transform: rotate(calc(8 * 30deg));
-  }
-  .marks > line:nth-child(9) {
-    transform: rotate(calc(9 * 30deg));
-    stroke-width: 0.5;
-  }
-  .marks > line:nth-child(10) {
-    transform: rotate(calc(10 * 30deg));
-  }
-  .marks > line:nth-child(11) {
-    transform: rotate(calc(11 * 30deg));
-  }
-  .marks > line:nth-child(12) {
-    transform: rotate(calc(12 * 30deg));
-    stroke-width: 0.5;
-  }
+  transform: translate(20px, 20px);
+  stroke-width: 0.2;
+  stroke: #007fc4;
+}
 
-  .sub-marks {
-    transform: translate(20px, 20px);
-    stroke-width: 0.2;
-    stroke: #007fc4;
-  }
+.marks>line:nth-child(1) {
+  /* There are 12 marks, so we rotate by 30deg (12 * 30 = 360) */
+  transform: rotate(30deg);
+}
 
-  .sub-marks line:nth-child(1) {
-    /* There are 12 marks, so we rotate by 30deg (12 * 30 = 360) */
-    transform: rotate(6deg); 
-  }
-  .sub-marks line:nth-child(2) {
-    /* There are 12 marks, so we rotate by 30deg (12 * 30 = 360) */
-    transform: rotate(calc(2*6deg )); 
-  }
-  .sub-marks line:nth-child(3) {
-    /* There are 12 marks, so we rotate by 30deg (12 * 30 = 360) */
-    transform: rotate(calc(3*6deg )); 
-  }
-  .sub-marks line:nth-child(4) {
-    /* There are 12 marks, so we rotate by 30deg (12 * 30 = 360) */
-    transform: rotate(calc(4*6deg )); 
-  }
-  
-  .two {
-    transform: rotate(30deg);
-  }
-  .three{
+.marks>line:nth-child(2) {
+  transform: rotate(calc(2 * 30deg));
+}
+
+.marks>line:nth-child(3) {
+  transform: rotate(calc(3 * 30deg));
+  stroke-width: 0.5;
+}
+
+.marks>line:nth-child(4) {
+  transform: rotate(calc(4 * 30deg));
+}
+
+.marks>line:nth-child(5) {
+  transform: rotate(calc(5 * 30deg));
+}
+
+.marks>line:nth-child(6) {
+  transform: rotate(calc(6 * 30deg));
+  stroke-width: 0.5;
+}
+
+.marks>line:nth-child(7) {
+  transform: rotate(calc(7 * 30deg));
+}
+
+.marks>line:nth-child(8) {
+  transform: rotate(calc(8 * 30deg));
+}
+
+.marks>line:nth-child(9) {
+  transform: rotate(calc(9 * 30deg));
+  stroke-width: 0.5;
+}
+
+.marks>line:nth-child(10) {
+  transform: rotate(calc(10 * 30deg));
+}
+
+.marks>line:nth-child(11) {
+  transform: rotate(calc(11 * 30deg));
+}
+
+.marks>line:nth-child(12) {
+  transform: rotate(calc(12 * 30deg));
+  stroke-width: 0.5;
+}
+
+.sub-marks {
+  transform: translate(20px, 20px);
+  stroke-width: 0.2;
+  stroke: #007fc4;
+}
+
+.sub-marks line:nth-child(1) {
+  /* There are 12 marks, so we rotate by 30deg (12 * 30 = 360) */
+  transform: rotate(6deg);
+}
+
+.sub-marks line:nth-child(2) {
+  /* There are 12 marks, so we rotate by 30deg (12 * 30 = 360) */
+  transform: rotate(calc(2*6deg));
+}
+
+.sub-marks line:nth-child(3) {
+  /* There are 12 marks, so we rotate by 30deg (12 * 30 = 360) */
+  transform: rotate(calc(3*6deg));
+}
+
+.sub-marks line:nth-child(4) {
+  /* There are 12 marks, so we rotate by 30deg (12 * 30 = 360) */
+  transform: rotate(calc(4*6deg));
+}
+
+.two {
+  transform: rotate(30deg);
+}
+
+.three {
   transform: rotate(calc(2*30deg));
 }
-  .four{
+
+.four {
   transform: rotate(calc(3*30deg));
 }
-  .five{
+
+.five {
   transform: rotate(calc(4*30deg));
 }
-  .six{
+
+.six {
   transform: rotate(calc(5*30deg));
 }
 
 .second-half {
-    transform: rotate(calc(180deg));
+  transform: rotate(calc(180deg));
 }
 
 
 
-  #display {
-    border-radius: 50%;
-    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#007fc4+0,007fc4+100&0.65+0,0+100 */
-background: -moz-radial-gradient(center, ellipse cover,  rgba(0,127,196,0.65) 0%, rgba(0,127,196,0) 100%); /* FF3.6-15 */
-background: -webkit-radial-gradient(center, ellipse cover,  rgba(0,127,196,0.65) 0%,rgba(0,127,196,0) 100%); /* Chrome10-25,Safari5.1-6 */
-background: radial-gradient(ellipse at center,  rgba(0,127,196,0.65) 0%,rgba(0,127,196,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6007fc4', endColorstr='#00007fc4',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+#display {
+  border-radius: 50%;
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#007fc4+0,007fc4+100&0.65+0,0+100 */
 
-    position: absolute;
-    top:25%;
-    left: 25%;
-    height: 120px;
-    width:120px;
-    border: 1px solid black;
-    color:white;
-    font-size: 1.6rem;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  height: 120px;
+  width: 120px;
+  color: white;
+  font-size: 1.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
