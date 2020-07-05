@@ -16,3 +16,7 @@ Clearing the record list;
 
 Design:
 SVG and Canvas are used for the UI of the watch
+
+//--- Side Note
+
+Debugging Required 
